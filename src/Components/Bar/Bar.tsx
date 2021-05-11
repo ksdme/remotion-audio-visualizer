@@ -1,7 +1,7 @@
 interface Props {
   color: string
-  height: number
-  width?: number
+  height: string | number
+  width?: string | number
 }
 
 export default function Bar({ color, height, width = 30 }: Props) {
@@ -9,7 +9,7 @@ export default function Bar({ color, height, width = 30 }: Props) {
     height,
     width,
     backgroundColor: color,
-    borderRadius: width / 2,
+    borderRadius: 999,
   }
 
   return (

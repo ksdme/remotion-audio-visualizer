@@ -3,22 +3,24 @@ import {useVideoConfig} from "remotion"
 interface Props {
   color?: string
   children: any
+  style?: any
 }
 
-export default function Canvas({ children, color = 'white' }: Props) {
+export default function Canvas({ children, style, color = 'white' }: Props) {
   const {
     width,
     height,
   } = useVideoConfig()
 
-  const style = {
+  const containerStyle = {
+    ...style,
     width,
     height,
     backgroundColor: color,
   }
 
   return (
-    <div style={style}>
+    <div style={containerStyle}>
       {children}
     </div>
   )
