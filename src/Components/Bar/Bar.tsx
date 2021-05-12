@@ -12,6 +12,7 @@ export default function Bar({ color, height, width = 30, transform = 'height 0.1
     backgroundColor: color,
     transition: transform,
     borderRadius: 999,
+    boxShadow: '0 0 6px rgb(0, 0, 0, 0.2)',
   }
 
   return (
