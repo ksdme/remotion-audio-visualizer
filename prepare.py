@@ -71,7 +71,7 @@ for window_index in tqdm(range(total_window_count)):
 # Scale all the amplitudes
 for bin in result_bins:
   for index in range(len(bin)):
-    bin[index] /= max_amplitude
+    bin[index] = math.log2(bin[index])
 
 # Export the result
 with open(f'{source}.json', 'w') as export:
