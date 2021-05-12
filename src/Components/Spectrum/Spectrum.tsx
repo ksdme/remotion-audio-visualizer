@@ -7,18 +7,23 @@ interface Point {
 interface Props {
   points: Point[]
   color: string
+  durationPerSample: number
   barWidth?: string | number
   barMinHeight?: number
   barGap?: number
 }
 
-export default function Spectrum({ points, color, barWidth = 20, barMinHeight = 30, barGap = 20 }: Props) {
+export default function Spectrum({ points, color, durationPerSample, barWidth = 20, barMinHeight = 30, barGap = 20 }: Props) {
   const rootStyle = {
     display: 'grid',
     gridGap: barGap,
     gridAutoFlow: 'column',
     alignItems: 'center',
   }
+
+  const barTransformStyle = (
+    `height ${durationPerSample}s ease`
+  )
 
   const elements = points.map((point, index) => {
     const style = {
@@ -27,12 +32,12 @@ export default function Spectrum({ points, color, barWidth = 20, barMinHeight = 
     }
 
     return (
-      <div style={style}>
+      <div key={index} style={style}>
         <Bar
-          key={index}
           color={color}
           width={barWidth}
-          height={barMinHeight + point.height} />
+          height={Math.max(point.height, barMinHeight)}
+          transform={barTransformStyle} />
       </div>
     )
   })
