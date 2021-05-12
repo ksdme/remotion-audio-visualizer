@@ -22,7 +22,7 @@ export default function Spectrum({ points, color, durationPerSample, barWidth = 
   }
 
   const barTransformStyle = (
-    `height ${durationPerSample}s ease`
+    `height ${durationPerSample}s linear`
   )
 
   const elements = points.map((point, index) => {
