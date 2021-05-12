@@ -2,15 +2,15 @@ import lodash from 'lodash'
 import {Audio, useCurrentFrame, useVideoConfig} from 'remotion'
 import Canvas from '../../Components/Canvas/Canvas'
 import Spectrum from '../../Components/Spectrum/Spectrum'
-import exampleSound from '../../../samples/example.wav'
-import exampleConfig from '../../../samples/example.wav.json'
+import audio from '../../../resources/audio.wav'
+import audioConfig from '../../../resources/audio.wav.json'
 
 interface Props {
-  audio: any
+  audioSrc: any
   config: any
 }
 
-export default function MainScene({ audio = exampleSound, config = exampleConfig }: Props) {
+export default function MainScene({ audioSrc = audio, config = audioConfig }: Props) {
   const frame = useCurrentFrame()
   const video = useVideoConfig()
   const durationPerSample = config.duration_per_sample
@@ -56,7 +56,7 @@ export default function MainScene({ audio = exampleSound, config = exampleConfig
       </Canvas>
 
       <Audio
-        src={audio}
+        src={audioSrc}
         startFrom={0} />
     </>
   )

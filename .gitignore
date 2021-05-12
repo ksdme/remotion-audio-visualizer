@@ -11,5 +11,3 @@ dist
 !src**/*.webm
 *.aac
 !src**/*.aac
-*.wav
-!src**/*.wav
