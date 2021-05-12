@@ -15,8 +15,8 @@ export default function MainScene({ audioSrc = audio, config = audioConfig }: Pr
   const video = useVideoConfig()
   const durationPerSample = config.duration_per_sample
   const framesPerSample = durationPerSample * video.fps
-  const maxHeight = 100
-  const minHeight = 120
+  const maxHeight = 80
+  const minHeight = 140
 
   // Returns the point value for the next value
   const getPointValue = (bin: number) => {
@@ -44,11 +44,11 @@ export default function MainScene({ audioSrc = audio, config = audioConfig }: Pr
 
   return (
     <>
-      <Canvas style={canvasStyle}>
+      <Canvas style={canvasStyle} color="#658E9C">
         <div style={spectrumStyle}>
           <Spectrum
             points={points}
-            color="#383e56"
+            color="#FFF"
             barGap={8}
             barWidth="75%"
             barMinHeight={minHeight}
