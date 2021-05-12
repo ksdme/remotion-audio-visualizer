@@ -5,7 +5,7 @@ export const RemotionVideo: React.FC = () => {
 	return (
 		<>
 			<Composition
-				id="HelloWorld"
+				id="MainScene"
 				component={MainScene}
 				durationInFrames={900}
 				fps={30}
