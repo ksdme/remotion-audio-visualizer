@@ -16,6 +16,7 @@ export default function MainScene({ audioSrc = audio, config = audioConfig }: Pr
   const durationPerSample = config.duration_per_sample
   const framesPerSample = durationPerSample * video.fps
   const maxHeight = 100
+  const minHeight = 120
 
   // Returns the point value for the next value
   const getPointValue = (bin: number) => {
@@ -50,7 +51,7 @@ export default function MainScene({ audioSrc = audio, config = audioConfig }: Pr
             color="#383e56"
             barGap={8}
             barWidth="75%"
-            barMinHeight={120}
+            barMinHeight={minHeight}
             durationPerSample={durationPerSample} />
         </div>
       </Canvas>
