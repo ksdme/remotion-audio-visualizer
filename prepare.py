@@ -54,7 +54,7 @@ for window_index in tqdm(range(total_window_count)):
   frequency_range = max_frequency - min_frequency
   bin_frequency_range = frequency_range // bin_count
 
-  for bin_starts in range(0, 800, bin_frequency_range):
+  for bin_starts in range(min_frequency, max_frequency, bin_frequency_range):
     bin_ends = int(bin_starts + bin_frequency_range)
     transform_slice = transform[bin_starts:bin_ends]
     slice_bins.append(sum(transform_slice) / bin_frequency_range)
