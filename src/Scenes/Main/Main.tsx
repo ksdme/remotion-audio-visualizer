@@ -6,10 +6,11 @@ import exampleSound from '../../../samples/example.wav'
 import exampleConfig from '../../../samples/example.wav.json'
 
 interface Props {
+  audio: any
   config: any
 }
 
-export default function MainScene({ config = exampleConfig }: Props) {
+export default function MainScene({ audio = exampleSound, config = exampleConfig }: Props) {
   const frame = useCurrentFrame()
   const video = useVideoConfig()
   const durationPerSample = config.duration_per_sample
@@ -55,7 +56,7 @@ export default function MainScene({ config = exampleConfig }: Props) {
       </Canvas>
 
       <Audio
-        src={exampleSound}
+        src={audio}
         startFrom={0} />
     </>
   )
