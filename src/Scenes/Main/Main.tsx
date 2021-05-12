@@ -15,14 +15,14 @@ export default function MainScene({ audioSrc = audio, config = audioConfig }: Pr
   const video = useVideoConfig()
   const durationPerSample = config.duration_per_sample
   const framesPerSample = durationPerSample * video.fps
-  const maxHeight = 80
-  const minHeight = 140
+  const unitAmplitudeHeight = 30
+  const minHeight = 80
 
   // Returns the point value for the next value
   const getPointValue = (bin: number) => {
     const currentSampleIndex = Math.floor(frame / framesPerSample)
     const factor = lodash.get(config, ['bins', currentSampleIndex + 1, bin])
-    return factor * maxHeight
+    return factor * unitAmplitudeHeight
   }
 
   // Value for each line in the spectrum.
